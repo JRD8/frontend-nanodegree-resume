@@ -1,7 +1,9 @@
-$("#main").append("The Great Houdiener");
+/* $("#main").append("The Great Houdiener"); */
 
-var awesomeThoughts = "I am JRD and I am AWESOME!";
-console.log(awesomeThoughts);
+var formattedName = HTMLheaderName.replace("%data%","The Great Houdiener");
+var formattedRole = HTMLheaderRole.replace("%data%","Grand Presdigitator");
 
-var funThoughts = awesomeThoughts.replace("AWESOME", "FUN");
-$("#main").append(funThoughts);
+$("#header").append(formattedName); // Name
+$("#header").append(formattedRole); // Role
+
+

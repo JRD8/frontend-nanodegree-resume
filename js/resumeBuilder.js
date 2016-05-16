@@ -6,14 +6,14 @@
 // var formattedBioPic = HTMLbioPic.replace("%data%", bio.picture_URL);
 // var formattedSkills = HTMLskills.replace("%data%", bio.skills);
 
-$("#main").append(bio.name); // Name
-$("#main").append(bio.role); // Role
-$("#main").append(bio.contact_info); // Contact
-$("#main").append(bio.welcome_message); // Welcome Message
-$("#main").append(bio.picture_URL); // BioPic
-$("#main").append(bio.skills); // skills
-$("#main").append(education.name);
-$("#main").append(work["position"]);
+// $("#main").append(bio.name); // Name
+// $("#main").append(bio.role); // Role
+// $("#main").append(bio.contact_info); // Contact
+// $("#main").append(bio.welcome_message); // Welcome Message
+// $("#main").append(bio.picture_URL); // BioPic
+// $("#main").append(bio.skills); // skills
+// $("#main").append(education.name);
+// $("#main").append(work["position"]);
 
 // STARTING ANEW HERE...
 
@@ -76,6 +76,8 @@ var bio = {
 	"skills" : ["bandleader", "prankster", "bongoist"]
 };
 
+$("#header").append(HTMLheaderName.replace("%data%", bio.name));
+
 var education = {
 	"schools" : 
 	[
@@ -113,6 +115,21 @@ var education = {
 		}
 	]
 };
+
+if (bio.skills.length > 0)
+{
+
+  	$("#header").append(HTMLskillsStart);
+
+  	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+  	$("#skills").append(formattedSkill);
+  	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+  	$("#skills").append(formattedSkill);
+  	formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+  	$("#skills").append(formattedSkill);
+
+};
+
 
 
 

@@ -116,6 +116,8 @@ var education = {
 	]
 };
 
+
+// Lesson 2 quiz 1
 if (bio.skills.length > 0)
 {
 
@@ -127,6 +129,17 @@ if (bio.skills.length > 0)
   	$("#skills").append(formattedSkill);
   	formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
   	$("#skills").append(formattedSkill);
+
+};
+
+// lesson 2 quiz 2
+for (job in work.job)
+{
+	$("#header").append(HTMLworkStart);
+	var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+	var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
+
+	$("#header").append(HTMLskillsStart);
 
 };
 

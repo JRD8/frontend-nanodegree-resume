@@ -134,13 +134,14 @@ if (bio.skills.length > 0)
 
 // lesson 2 quiz 2
 
-for (var indexCount = 0; indexCount < work.jobs.length; indexCount++)
+for (job in work.jobs)
 {
-	// console.log( work.jobs[indexCount].employer);
-	formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[indexCount].employer);
-	formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[indexCount].title);
+	$("#workExperience").append(HTMLworkStart);
 
-	$("#work-entry:last").append(formattedEmployer);
+	formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+
+	$(".work-entry:last").append(formattedEmployer + formattedTitle);
 
 };
 

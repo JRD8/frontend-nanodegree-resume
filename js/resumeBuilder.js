@@ -18,7 +18,7 @@
 // STARTING ANEW HERE...
 
 var work = {
-	"job" :
+	"jobs" :
 	[
 		{
 			"employer" : "The Royal Mounties",
@@ -38,7 +38,7 @@ var work = {
 };
 
 var projects = {
-	"project" : 
+	"projects" : 
 	[
 		{
 			"title" : "pyramid excavation",
@@ -133,13 +133,14 @@ if (bio.skills.length > 0)
 };
 
 // lesson 2 quiz 2
-for (job in work.job)
-{
-	$("#header").append(HTMLworkStart);
-	var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
-	var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
 
-	$("#header").append(HTMLskillsStart);
+for (var indexCount = 0; indexCount < work.jobs.length; indexCount++)
+{
+	// console.log( work.jobs[indexCount].employer);
+	formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[indexCount].employer);
+	formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[indexCount].title);
+
+	$("#work-entry:last").append(formattedEmployer);
 
 };
 

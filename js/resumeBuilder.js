@@ -1,22 +1,3 @@
-/* $("#main").append("The Great Houdiener"); */
-
-// var formattedName = HTMLheaderName.replace("%data%", bio.name);
-// var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-// var formattedContact = HTMLmobile.replace("%data%", bio.contact_info);
-// var formattedBioPic = HTMLbioPic.replace("%data%", bio.picture_URL);
-// var formattedSkills = HTMLskills.replace("%data%", bio.skills);
-
-// $("#main").append(bio.name); // Name
-// $("#main").append(bio.role); // Role
-// $("#main").append(bio.contact_info); // Contact
-// $("#main").append(bio.welcome_message); // Welcome Message
-// $("#main").append(bio.picture_URL); // BioPic
-// $("#main").append(bio.skills); // skills
-// $("#main").append(education.name);
-// $("#main").append(work["position"]);
-
-// STARTING ANEW HERE...
-
 var work = {
 	"jobs" :
 	[
@@ -73,10 +54,9 @@ var bio = {
 		"twitter" : "@funny",
 		"location" : "NYC"
 	},
-	"skills" : ["bandleader", "prankster", "bongoist"]
+	"skills" : ["bandleader", "prankster", "bongoist"],
+	"pic" : "/Users/JRD/udacity/frontend-nanodegree-resume/images/me.jpg"
 };
-
-$("#header").append(HTMLheaderName.replace("%data%", bio.name));
 
 var education = {
 	"schools" : 
@@ -116,8 +96,16 @@ var education = {
 	]
 };
 
+$("#header").append(HTMLheaderName.replace("%data%", bio.name)); // Name
+$("#header").append(HTMLheaderRole.replace("%data%", bio.role)); // Role
+$("#header").append(HTMLmobile.replace("%data%", bio.contacts.mobile)); // Contact
+$("#header").append(HTMLemail.replace("%data%", bio.contacts.email)); // Contact
+$("#header").append(HTMLgithub.replace("%data%", bio.contacts.github)); // Contact
+$("#header").append(HTMLtwitter.replace("%data%", bio.contacts.twitter)); // Contact
+$("#header").append(HTMLlocation.replace("%data%", bio.contacts.location)); // Contact
+$("#header").append(HTMLbioPic.replace("%data%", bio.pic)); // BioPic
+$("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcome)); // Welcome Message
 
-// Lesson 2 quiz 1
 if (bio.skills.length > 0)
 {
 
@@ -132,8 +120,6 @@ if (bio.skills.length > 0)
 
 };
 
-// lesson 2 quiz 2
-
 for (job in work.jobs)
 {
 	$("#workExperience").append(HTMLworkStart);
@@ -144,11 +130,6 @@ for (job in work.jobs)
 	$(".work-entry:last").append(formattedEmployer + formattedTitle);
 
 };
-
-
-
-
-
 
 
 

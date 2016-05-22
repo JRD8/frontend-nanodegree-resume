@@ -169,6 +169,8 @@ function inName()
 displayWork();
 projects.display();
 
+$("#mapDiv").append(googleMap); // Add Google Map
+
 
 
 

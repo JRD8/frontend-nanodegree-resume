@@ -98,11 +98,13 @@ var education = {
 
 $("#header").append(HTMLheaderName.replace("%data%", bio.name)); // Name
 $("#header").append(HTMLheaderRole.replace("%data%", bio.role)); // Role
-$("#header").append(HTMLmobile.replace("%data%", bio.contacts.mobile)); // Contact
-$("#header").append(HTMLemail.replace("%data%", bio.contacts.email)); // Contact
-$("#header").append(HTMLgithub.replace("%data%", bio.contacts.github)); // Contact
-$("#header").append(HTMLtwitter.replace("%data%", bio.contacts.twitter)); // Contact
-$("#header").append(HTMLlocation.replace("%data%", bio.contacts.location)); // Contact
+
+$("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile)); // Contact
+$("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email)); // Contact
+$("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github)); // Contact
+$("#topContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter)); // Contact
+$("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts.location)); // Contact
+
 $("#header").append(HTMLbioPic.replace("%data%", bio.pic)); // BioPic
 $("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcome)); // Welcome Message
 
@@ -120,19 +122,27 @@ if (bio.skills.length > 0)
 
 };
 
-for (job in work.jobs)
-{
-	$("#workExperience").append(HTMLworkStart);
+// function displayWork() 
+// {
+	for (job in work.jobs)
+	{
+		$("#workExperience").append(HTMLworkStart);
 
-	formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-	formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+		formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+		formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
 
-	$(".work-entry:last").append(formattedEmployer + formattedTitle);
-	$(".work-entry:last").append(HTMLworkLocation.replace("%data%", work.jobs[job].location));
-	$(".work-entry:last").append(HTMLworkDates.replace("%data%", work.jobs[job].dates));
-	$(".work-entry:last").append(HTMLworkDescription.replace("%data%", work.jobs[job].desc));
+		$(".work-entry:last").append(formattedEmployer + formattedTitle);
+		$(".work-entry:last").append(HTMLworkLocation.replace("%data%", work.jobs[job].location));
+		$(".work-entry:last").append(HTMLworkDates.replace("%data%", work.jobs[job].dates));
+		$(".work-entry:last").append(HTMLworkDescription.replace("%data%", work.jobs[job].desc));
 
-};
+	};
+
+// };
+
+// displayWork();
+
+$("#main").append(internationalizeButton); // Internationalize Button
 
 
 

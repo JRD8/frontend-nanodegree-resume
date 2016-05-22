@@ -18,6 +18,24 @@ var work = {
 	] 
 };
 
+work.display = function() 
+{
+	for (job in work.jobs)
+	{
+		$("#workExperience").append(HTMLworkStart);
+
+		formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+		formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+
+		$(".work-entry:last").append(formattedEmployer + formattedTitle);
+		$(".work-entry:last").append(HTMLworkLocation.replace("%data%", work.jobs[job].location));
+		$(".work-entry:last").append(HTMLworkDates.replace("%data%", work.jobs[job].dates));
+		$(".work-entry:last").append(HTMLworkDescription.replace("%data%", work.jobs[job].desc));
+
+	};
+};
+
+
 var projects = {
 	"projects" : 
 	[
@@ -71,6 +89,35 @@ var bio = {
 	"pic" : "/Users/JRD/udacity/frontend-nanodegree-resume/images/me.jpg"
 };
 
+bio.display = function()
+{
+	$("#header").append(HTMLheaderName.replace("%data%", bio.name)); // Name
+	$("#header").append(HTMLheaderRole.replace("%data%", bio.role)); // Role
+
+	$("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile)); // Contact
+	$("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email)); // Contact
+	$("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github)); // Contact
+	$("#topContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter)); // Contact
+	$("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts.location)); // Contact
+
+	$("#header").append(HTMLbioPic.replace("%data%", bio.pic)); // BioPic
+	$("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcome)); // Welcome Message
+
+	if (bio.skills.length > 0)
+	{
+
+  		$("#header").append(HTMLskillsStart);
+
+  		var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+  		$("#skills").append(formattedSkill);
+  		formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+  		$("#skills").append(formattedSkill);
+  		formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+  		$("#skills").append(formattedSkill);
+
+	};
+}
+
 var education = {
 	"schools" : 
 	[
@@ -109,51 +156,6 @@ var education = {
 	]
 };
 
-$("#header").append(HTMLheaderName.replace("%data%", bio.name)); // Name
-$("#header").append(HTMLheaderRole.replace("%data%", bio.role)); // Role
-
-$("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile)); // Contact
-$("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email)); // Contact
-$("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github)); // Contact
-$("#topContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter)); // Contact
-$("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts.location)); // Contact
-
-$("#header").append(HTMLbioPic.replace("%data%", bio.pic)); // BioPic
-$("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcome)); // Welcome Message
-
-if (bio.skills.length > 0)
-{
-
-  	$("#header").append(HTMLskillsStart);
-
-  	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-  	$("#skills").append(formattedSkill);
-  	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-  	$("#skills").append(formattedSkill);
-  	formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-  	$("#skills").append(formattedSkill);
-
-};
-
-function displayWork() 
-{
-	for (job in work.jobs)
-	{
-		$("#workExperience").append(HTMLworkStart);
-
-		formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-		formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-
-		$(".work-entry:last").append(formattedEmployer + formattedTitle);
-		$(".work-entry:last").append(HTMLworkLocation.replace("%data%", work.jobs[job].location));
-		$(".work-entry:last").append(HTMLworkDates.replace("%data%", work.jobs[job].dates));
-		$(".work-entry:last").append(HTMLworkDescription.replace("%data%", work.jobs[job].desc));
-
-	};
-};
-
-$("#main").append(internationalizeButton); // Internationalize Button
-
 function inName()
 {
 	var temp = bio.name.split(" ");
@@ -164,11 +166,13 @@ function inName()
 	last = last.toUpperCase();
 
 	return first + " " + last;
-}
+};
 
-displayWork();
+bio.display();
+work.display();
 projects.display();
 
+$("#main").append(internationalizeButton); // Add Internationalize Button
 $("#mapDiv").append(googleMap); // Add Google Map
 
 

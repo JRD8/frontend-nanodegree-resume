@@ -25,13 +25,13 @@ var projects = {
 			"title" : "pyramid excavation",
 			"dates" : "1999 - present",
 			"desc" : "alot of sweating",
-			"image" : "images/me.jpg"
+			"image" : "images/fry.jpg"
 		},
 		{
 			"title" : "magic convention",
 			"dates" : "2050 - present",
 			"desc" : "alot of trickery",
-			"image" : "images/me2.png"
+			"image" : "images/fry.jpg"
 		},
 		{
 			"title" : "airline convention",
@@ -42,8 +42,21 @@ var projects = {
 	]
 };
 
+projects.display = function()
+{
+	for (project in projects.projects)
+	{
+		$("#projects").append(HTMLprojectStart);
+
+		$(".project-entry:last").append(HTMLprojectTitle.replace("%data%", projects.projects[project].title)); // Title
+		$(".project-entry:last").append(HTMLprojectDates.replace("%data%", projects.projects[project].dates)); // Dates
+		$(".project-entry:last").append(HTMLprojectDescription.replace("%data%", projects.projects[project].desc)); // Description
+		$(".project-entry:last").append(HTMLprojectImage.replace("%data%", projects.projects[project].image)); // Image		
+	}
+};
+
 var bio = {
-	"name" : "The Great JRD",
+	"name" : "Lon Donson",
 	"role" : "Master Magiciano",
 	"welcome" : "aha, you are now entering my lair...",
 	"contacts" : 
@@ -122,8 +135,8 @@ if (bio.skills.length > 0)
 
 };
 
-// function displayWork() 
-// {
+function displayWork() 
+{
 	for (job in work.jobs)
 	{
 		$("#workExperience").append(HTMLworkStart);
@@ -137,13 +150,24 @@ if (bio.skills.length > 0)
 		$(".work-entry:last").append(HTMLworkDescription.replace("%data%", work.jobs[job].desc));
 
 	};
-
-// };
-
-// displayWork();
+};
 
 $("#main").append(internationalizeButton); // Internationalize Button
 
+function inName()
+{
+	var temp = bio.name.split(" ");
+	var first = temp[0];
+	var last = temp[1];
+
+	first = first.charAt(0).toUpperCase() + first.slice(1).toLowerCase();
+	last = last.toUpperCase();
+
+	return first + " " + last;
+}
+
+displayWork();
+projects.display();
 
 
 
